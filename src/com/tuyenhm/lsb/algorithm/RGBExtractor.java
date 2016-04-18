@@ -1,0 +1,61 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package com.tuyenhm.lsb.algorithm;
+
+import java.awt.Color;
+import java.awt.image.BufferedImage;
+
+/**
+ *
+ * @author tuyenhuynh
+ */
+public class RGBExtractor {
+    private int[][] r; 
+    private int[][] g ;
+    private int[][] b ; 
+    
+    public void extractRGB(BufferedImage image) {
+        int width = image.getWidth() ; 
+        int height = image.getHeight();
+        r  = new int[height][width]; 
+        g  = new int[height][width]; 
+        b  = new int[height][width]; 
+        Color pixel = null; 
+        for(int i = 0 ; i < height; ++i) {
+            for(int j = 0 ; j < width ; ++j) {
+                pixel = new Color(image.getRGB(i, j)); 
+                r[i][j] = pixel.getRed();
+                g[i][j] = pixel.getGreen(); 
+                b[i][j] = pixel.getBlue(); 
+            }
+        }
+    }
+    
+    
+    public void changeBlue(BufferedImage image, int[][] blue){
+        int width = image.getWidth() ; 
+        int height = image.getHeight() ; 
+        Color pixel ; 
+        for(int i = 2 ; i < width ;++i) {
+            for (int j = 2 ; j < height ;++j) {
+                pixel = new Color(image.getRGB(i, j));
+                image.setRGB(pixel.getRed(), pixel.getGreen(), blue[i][j]);
+            }
+        }
+    }
+
+    public int[][] getR() {
+        return r;
+    }
+
+    public int[][] getG() {
+        return g;
+    }
+
+    public int[][] getB() {
+        return b;
+    }       
+}
