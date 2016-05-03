@@ -3,22 +3,18 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.tuyenhm.lsb.algorithm;
+package com.tuyenhm.steganography.algorithm;
 
 import Catalano.Imaging.FastBitmap;
 import Catalano.Imaging.Tools.ObjectiveFidelity;
-import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
-import javax.imageio.ImageIO;
 
 /**
  *
  * @author tuyenhuynh
  */
-public class Controller {
+public class MetricAnalyzier {
     
-    public void calculateMetrics(String firstFile, String secondFile) {
+    public static String calculateMetrics(String firstFile, String secondFile) {
         FastBitmap firstBitmap = new FastBitmap(firstFile); 
         FastBitmap secondBitmap = new FastBitmap(secondFile); 
         if(!firstBitmap.isGrayscale()) firstBitmap.toGrayscale();
@@ -26,6 +22,9 @@ public class Controller {
         
         ObjectiveFidelity of = new ObjectiveFidelity(firstBitmap, secondBitmap); 
         // Error total
+        
+        StringBuilder builder = new StringBuilder(); 
+        
         int error = of.getTotalError();
         System.out.println("Error total: " + error ); 
       
@@ -40,28 +39,11 @@ public class Controller {
         //Peak Signal Noise Ratio
         double psnr = of.getPSNR();
         System.out.println("Peak Signal Noise Ratio: " + psnr );
-        
+        builder.append("Error total: " + error + ". ")
+                .append("Mean Square Error: " + mse + ". ")
+                .append("Signal Noise Ratio: " + snr  +". ")
+                .append("Peak Signal Noise Ratio: " + psnr +".");
+        return builder.toString();
     } 
-    
-    public BufferedImage loadImage(String imagePath) {
-        BufferedImage img ;
-        try {
-           System.out.println(imagePath); 
-           img = ImageIO.read(getClass().getResourceAsStream(imagePath));
-       } catch (IOException e) {
-           e.printStackTrace();
-           img = null; 
-       }
-        return img ; 
-    }
-    
-    public void writeImage(String imagePath, BufferedImage img){
-        try{
-            File file = new File(imagePath); 
-            ImageIO.write(img, "bmp", file ); 
-        }catch(IOException ex) {
-            ex.printStackTrace();
-        }
-    }
     
 }

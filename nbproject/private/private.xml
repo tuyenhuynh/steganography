@@ -2,6 +2,13 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/Users/tuyenhuynh/Desktop/Network/LSB/src/com/tuyenhm/steganography/algorithm/KDBAlgorithm.java</file>
+            <file>file:/Users/tuyenhuynh/Desktop/Network/LSB/src/com/tuyenhm/steganography/algorithm/LSBAlgorithm.java</file>
+            <file>file:/Users/tuyenhuynh/Desktop/Network/LSB/src/com/tuyenhm/steganography/algorithm/RGBExtractor.java</file>
+            <file>file:/Users/tuyenhuynh/Desktop/Network/LSB/src/com/tuyenhm/steganography/algorithm/MetricAnalyzier.java</file>
+            <file>file:/Users/tuyenhuynh/Desktop/Network/LSB/src/com/tuyenhm/steganography/algorithm/StringBitConverter.java</file>
+            <file>file:/Users/tuyenhuynh/Desktop/Network/LSB/src/com/tuyenhm/steganography/view/Steganography.java</file>
+        </group>
     </open-files>
 </project-private>

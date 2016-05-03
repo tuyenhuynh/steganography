@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.tuyenhm.lsb.algorithm;
+package com.tuyenhm.steganography.algorithm;
 
 import java.awt.Color;
 import java.awt.image.BufferedImage;
@@ -34,7 +34,6 @@ public class RGBExtractor {
         }
     }
     
-    
     public void changeBlue(BufferedImage image, int[][] blue){
         int width = image.getWidth() ; 
         int height = image.getHeight() ; 
@@ -42,7 +41,8 @@ public class RGBExtractor {
         for(int i = 2 ; i < width ;++i) {
             for (int j = 2 ; j < height ;++j) {
                 pixel = new Color(image.getRGB(i, j));
-                image.setRGB(pixel.getRed(), pixel.getGreen(), blue[i][j]);
+                Color c = new Color(pixel.getRed(), pixel.getGreen(), blue[i][j]);
+                image.setRGB(i, j, c.getRGB());
             }
         }
     }
